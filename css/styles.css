@@ -1,0 +1,28 @@
+body {
+    margin-top: 20px;
+    background-color: rgb(39, 39, 39);
+}
+
+hr {
+    background-color: whitesmoke;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover{
+    color: rgb(120,120,120);
+}
+
+footer {
+    padding-top: 30px;
+    color: whitesmoke;
+}
+
+.title {
+    text-align: center;
+    padding: 20px;
+    color: whitesmoke;
+}
