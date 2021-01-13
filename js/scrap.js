@@ -2,6 +2,7 @@ var scrapList = [];
 var obj;
 var objTitle;
 
+
 function adicionaRecado(){
     var message = obj.value;
     var title = objTitle.value;
@@ -27,7 +28,7 @@ function adicionaRecado(){
         
     scrapList.push({
         item: message,
-        tit: title
+        tit: title,
     });
 
     obj.value = "";
@@ -61,6 +62,9 @@ window.addEventListener('load', function(){
     });
     
     var divAlert = document.getElementById("alerta");
+    divAlert.style.display = "none";
+
+    var divAlert = document.getElementById("alerta-apagar");
     divAlert.style.display = "none";
 
     obj.addEventListener('keypress', function(ev){
@@ -120,4 +124,11 @@ function apagar(conteudo){
 
     mostraRecado(scrapList);
     saveData(scrapList);
+
+    var divAlert = document.getElementById("alerta-apagar");
+    divAlert.style.display = "block";
+
+    setTimeout(function() {
+        divAlert.style.display = "none";
+    }, 3000);
 }

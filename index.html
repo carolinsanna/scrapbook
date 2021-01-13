@@ -19,7 +19,7 @@
         <div id="controls" class="row">
             <div class="col-md-12 input-group mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-default">Título</span>
-                <input type="text" id="title" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Tarefa">
+                <input type="text" id="title" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Tarefa" maxlength="100">
             </div>
             <div class="col-md-12 input-group">
                 <span class="input-group-text">Descrição</span>
@@ -30,8 +30,12 @@
         </div>
         <hr>
         <div class="content">
-            <div id="alerta" class="alert alert-dark alert-dismissible fade show" role="alert">
+            <div id="alerta" class="alert alert-success alert-dismissible fade show" role="alert">
                 <strong>Feito!</strong> Tarefa adicionada!
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <div id="alerta-apagar" class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>Feito!</strong> Tarefa removida!
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
             <div class="cards row" id="scraps">
