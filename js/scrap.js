@@ -1,11 +1,13 @@
 var scrapList = [];
 var obj;
 var objTitle;
+var objAuthor;
 
 
 function adicionaRecado(){
     var message = obj.value;
     var title = objTitle.value;
+    var author = objAuthor.value;
 
     /*var index = scrapList.findIndex(scrap => scrap.item.toLowerCase() === message.toLowerCase());
 
@@ -29,10 +31,12 @@ function adicionaRecado(){
     scrapList.push({
         item: message,
         tit: title,
+        who: author
     });
 
     obj.value = "";
     objTitle.value = "";
+    objAuthor.value = "";
     obj.focus();
 
     mostraRecado(scrapList);
@@ -55,6 +59,7 @@ window.addEventListener('load', function(){
     loadData();
     obj = document.getElementById('recado');
     objTitle = document.getElementById('title');
+    objAuthor = document.getElementById('author');
 
     var botao = document.getElementById('enviar');
     botao.addEventListener('click', function(){
@@ -98,7 +103,7 @@ function mostraRecado(list){
                     <div class="card mb-3 text-center">
                         <div class="card-body">
                             <h5 class="card-title">${scr.tit}</h5>
-                            <h6 class="card-subtitle mb-2 text-muted"></h6>
+                            <h6 class="card-subtitle mb-2 text-muted">${scr.who}</h6>
                             <p class="card-text">${scr.item}</p>
                             <button type="button" class="btn btn-danger" onclick = "apagar('${scr.item}')">Apagar</button>
                         </div>
