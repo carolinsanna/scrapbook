@@ -7,7 +7,7 @@
     <title>Scrapbook 1.2</title>
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/styles.css">
-    
+
 </head>
 
 <body>
@@ -19,11 +19,14 @@
         <div id="controls" class="row">
             <div class="col-md-12 input-group mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-default">Título</span>
-                <input type="text" id="title" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Tarefa" maxlength="100">
+                <input type="text" id="title" class="form-control" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-default" placeholder="Tarefa" maxlength="100">
             </div>
             <div class="col-md-12 input-group mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-default">Autor</span>
-                <input type="text" id="author" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Quem vai executar a tarefa" maxlength="100">
+                <input type="text" id="author" class="form-control" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-default" placeholder="Quem vai executar a tarefa"
+                    maxlength="100">
             </div>
             <div class="col-md-12 input-group">
                 <span class="input-group-text">Descrição</span>
@@ -42,13 +45,35 @@
                 <strong>Feito!</strong> Tarefa removida!
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
+            <div id="alerta-editar" class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Feito!</strong> Tarefa editada!
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
             <div class="cards row" id="scraps">
             </div>
         </div>
     </div>
-    
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Editar conteúdo</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Understood</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="container">
-        <footer>Desenvolvido por <a href="https://github.com/carolinsanna" >@carolinsanna</a></footer>
+        <footer>Desenvolvido por <a href="https://github.com/carolinsanna">@carolinsanna</a></footer>
     </div>
     <script src="./js/jQuery.js"></script>
     <script src="./js/bootstrap.min.js"></script>
