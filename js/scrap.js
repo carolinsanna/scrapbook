@@ -3,6 +3,14 @@ var obj;
 var objTitle;
 var objAuthor;
 
+function nextId(list){
+    var theLastOne = 0;
+    for (var index = 0; index < list.length; index++){
+        theLastOne = Math.max(theLastOne, list[index].id);
+    }
+    theLastOne++;
+    return theLastOne;
+}
 
 function adicionaRecado() {
     var message = obj.value;
@@ -36,7 +44,8 @@ function adicionaRecado() {
     scrapList.push({
         item: message,
         tit: title,
-        who: author
+        who: author,
+        id: nextId(scrapList)
     });
 
     obj.value = "";
@@ -57,7 +66,7 @@ function adicionaRecado() {
 }
 
 function saveData(list) {
-    localStorage.setItem("id", JSON.stringify(list));
+    localStorage.setItem("safe", JSON.stringify(list));
 }
 
 window.addEventListener('load', function () {
@@ -88,10 +97,8 @@ window.addEventListener('load', function () {
     });
 });
 
-
-
 function loadData() {
-    var saveList = localStorage.getItem('id');
+    var saveList = localStorage.getItem('safe');
     if (saveList !== null) {
         scrapList = JSON.parse(saveList);
     } else {
@@ -102,10 +109,12 @@ function loadData() {
 
 function mostraRecado(list) {
     var scrap = document.getElementById('scraps');
-
     var novoHTML = "";
+    var newList = list.slice(0, list.length);
 
-    for (var scr of list) {
+    newList.reverse();
+
+    for (var scr of newList) {
         novoHTML += `
                 <div class="col-md-4">
                     <div class="card mb-3 text-center">
@@ -113,8 +122,8 @@ function mostraRecado(list) {
                             <h5 class="card-title">${scr.tit}</h5>
                             <h6 class="card-subtitle mb-2 text-muted">${scr.who}</h6>
                             <p class="card-text">${scr.item}</p>
-                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="editar(${scr.itme})">Editar</button>
-                            <button type="button" class="btn btn-danger" onclick = "apagar(${scr.item})">Apagar</button>
+                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="editar(${scr.id})">Editar</button>
+                            <button type="button" class="btn btn-danger" onclick = "apagar(${scr.id})">Apagar</button>
                             
                         </div>
                     </div>
@@ -126,23 +135,35 @@ function mostraRecado(list) {
 }
 
 function editar(conteudo) {
-    var index = scrapList.findIndex(f => f.item === conteudo);
+    var index = scrapList.findIndex(f => f.id === conteudo);
     var card = scrapList[index];
 
-    document.getElementById().value = card.item;
-    document.getElementById().value = card.tit;
-    document.getElementById().value = card.who;
+    document.getElementById("code").value = card.id;
+    document.getElementById("title-edited").value = card.tit;
+    document.getElementById("author-edited").value = card.who;document.getElementById("recado-edited").value = card.item;    
+}
+
+function salvarEdicao(){
+    var id = document.getElementById("code").value;
+    var index = scrapList.findIndex(f => f.id === parseInt(id));
+
+    scrapList[index].item = document.getElementById("recado-edited").value;
+    scrapList[index].tit = document.getElementById("title-edited").value;
+    scrapList[index].who = document.getElementById("author-edited").value;
+
+    mostraRecado(scrapList);
+    saveData(scrapList);
 
     var divAlert = document.getElementById("alerta-editar");
     divAlert.style.display = "block";
 
     setTimeout(function () {
         divAlert.style.display = "none";
-    }, 3000);
+    }, 3000);    
 }
 
 function apagar(conteudo) {
-    var index = scrapList.findIndex(f => f.item === conteudo);
+    var index = scrapList.findIndex(f => f.id === conteudo);
     if (index < 0) {
         return;
     }
