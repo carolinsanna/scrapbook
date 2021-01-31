@@ -64,25 +64,37 @@
                     <input type="hidden" id="code">
                     <div class="container">
                         <div class="row">
-                            <div class="col-md-12">
-                                <input type="text" class="form-control" id="title-edited" placeholder="Tarefa">
+                            <div class="col-md-12 input-group mb-3">
+                                <span class="input-group-text" id="inputGroup-sizing-default">Título</span>
+                                <input type="text" id="title-edited" class="form-control"
+                                    aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"
+                                    placeholder="Tarefa" maxlength="100">
                             </div>
                         </div>
+                        
                         <div class="row">
-                            <div class="col-md-12">
-                                <input type="text" class="form-control" id="author-edited" placeholder="De quem é a tarefa?">
+                            <div class="col-md-12 input-group mb-3">
+                                <span class="input-group-text" id="inputGroup-sizing-default">Título</span>
+                                <input type="text" id="author-edited" class="form-control"
+                                    aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"
+                                    placeholder="Quem vai executar a tarefa" maxlength="100">
                             </div>
                         </div>
+                        
                         <div class="row">
-                            <div class="col-md-12">
-                                <input type="text" class="form-control" id="recado-edited" placeholder="Descreva a tarefa">
+                            <div class="col-md-12 input-group">
+                                <span class="input-group-text">Descrição</span>
+                                <textarea class="form-control" id="recado-edited" aria-label="With textarea"
+                                    placeholder="Descreva a Tarefa" maxlength="2000"></textarea>
                             </div>
                         </div>
+                       
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-success" id="save-button" onclick="salvarEdicao()" data-bs-dismiss="modal">Post-it</button>
+                    <button type="button" class="btn btn-success" id="save-button" onclick="salvarEdicao()"
+                        data-bs-dismiss="modal">Post-it</button>
                 </div>
             </div>
         </div>
