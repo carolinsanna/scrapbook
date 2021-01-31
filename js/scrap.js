@@ -80,6 +80,11 @@ window.addEventListener('load', function () {
         adicionaRecado();
     });
 
+    var botaoSalvar = document.getElementById("save-button");
+    botaoSalvar.addEventListener("click", function() {
+        salvarEdicao();
+    })
+
     var divAlert = document.getElementById("alerta");
     divAlert.style.display = "none";
 
