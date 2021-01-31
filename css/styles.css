@@ -3,6 +3,10 @@ body {
     background-color: rgb(39, 39, 39);
 }
 
+sup{
+    font-size: 18px;
+}
+
 hr {
     background-color: whitesmoke;
 }
